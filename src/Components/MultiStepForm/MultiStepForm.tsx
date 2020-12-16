@@ -77,9 +77,13 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
     }
   }
 
-  const handleNext = () => {
+  const handleNext = (isFinalStep: boolean) => {
     if (isFormValid) {
       setActiveStep(activeStep + 1);
+    }
+
+    if (isFinalStep) {
+      console.log(JSON.stringify(formData));
     }
   }
 
@@ -109,7 +113,7 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
             errors: errors,
             onChange: (e: React.FormEvent<HTMLInputElement>) => handleChange(e),
             onBlur: (e: React.FormEvent<HTMLInputElement>) => handleBlur(e),
-            next: handleNext,
+            next: () => handleNext(child.props.step === children.length - 1),
           }, null)
         })}
       </form>
