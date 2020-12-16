@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './UserStep.css';
+
 interface UserStepProps {
   values?: {
     name: string;
@@ -57,26 +59,32 @@ export const UserStep: React.FC<UserStepProps> = ({
 
   return isActive ? (
     <React.Fragment>
-      <label htmlFor="name">
-        name: *
+      <label htmlFor="name" className="user-step__label">
+        <span className="user-step__label__text">name: *</span>
         <input type="text" name="name" id="name" value={values.name} required onChange={onChange} onBlur={onBlur} />
-        {touched.name && errors.name}
+        {touched.name && (
+          <span className="user-step__label__error">{errors.name}</span>
+        )}
       </label>
-      <label htmlFor="role">
-        role:
+      <label htmlFor="role" className="user-step__label">
+        <span className="user-step__label__text">role:</span>
         <input type="text" name="role" id="role" value={values.role} onChange={onChange} onBlur={onBlur}/>
       </label>
-      <label htmlFor="email">
-        email: *
+      <label htmlFor="email" className="user-step__label">
+        <span className="user-step__label__text">email: *</span>
         <input type="email" name="email" id="email" value={values.email} required onChange={onChange} onBlur={onBlur} />
-        {touched.email && errors.email}
+        {touched.email && (
+          <span className="user-step__label__error">{errors.email}</span>
+        )}
       </label>
-      <label htmlFor="password">
-        password: *
+      <label htmlFor="password" className="user-step__label">
+        <span className="user-step__label__text">password: *</span>
         <input type="password" name="password" id="password" value={values.password} required onChange={onChange} onBlur={onBlur} />
-        {touched.password && errors.password}
+        {touched.password && (
+          <span className="user-step__label__error">{errors.password}</span>
+        )}
       </label>
-      <button type="button" onClick={handleSubmit}>Submit</button>
+      <button className="user-step__submit" type="button" onClick={handleSubmit}>Submit</button>
     </React.Fragment>
   ) : null;
 };

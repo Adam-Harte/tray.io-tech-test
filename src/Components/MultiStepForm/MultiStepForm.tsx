@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import { validate } from '../../Utils/validation';
 
+import './MultiStepForm.css';
+
 interface MultiStepFormProps {
   children: JSX.Element[];
   values: {
@@ -82,14 +84,14 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
   }
 
   return (
-    <React.Fragment>
-      <ul>
+    <div className="multi-step-form">
+      <ul className="multi-step-form__steps-list">
         {React.Children.map(children, (child, index) => {
           return (
-            <li>
+            <li className="multi-step-form__steps-list__step">
               <button
                 type="button"
-                className={index === activeStep ? 'active' : ''}
+                className={index === activeStep - 1 ? 'multi-step-form__steps-list__step__button--active' : 'multi-step-form__steps-list__step__button'}
                 onClick={(e) => handleStepChange(e, child.props.step)}
               >
                 {child.props.label}
@@ -111,6 +113,6 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
           }, null)
         })}
       </form>
-    </React.Fragment>
+    </div>
   );
 };

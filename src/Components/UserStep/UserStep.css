@@ -1,0 +1,28 @@
+.user-step__label {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+}
+
+.user-step__label > input {
+	width: 40%;
+}
+
+.user-step__label__text {
+	font-size: 12px;
+}
+
+.user-step__label__error {
+	font-size: 12px;
+	color: red;
+}
+
+.user-step__submit {
+	padding: 10px;
+	margin-top: 20px;
+	background-color: green;
+	color: white;
+	outline: none;
+	border: none;
+	border-radius: 3px;
+}

@@ -1,0 +1,34 @@
+.multi-step-form {
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 20px;
+}
+
+.multi-step-form__steps-list {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	width: 100%;
+	padding: 0;
+}
+
+.multi-step-form__steps-list__step {
+	flex-grow: 1;
+}
+
+.multi-step-form__steps-list__step__button {
+	width: 100%;
+	padding: 5px;
+	cursor: pointer;
+	border: none;
+	outline: none;
+}
+
+.multi-step-form__steps-list__step__button--active {
+	width: 100%;
+	padding: 5px;
+	cursor: pointer;
+	background-color: lightblue;
+	border: none;
+	outline: none;
+}
